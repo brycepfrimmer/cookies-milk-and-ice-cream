@@ -30,7 +30,7 @@ CCFLAGS+=-fstack-protector-strong -D_FORTIFY_SOURCE=2 \
 LDFLAGS+=-Wl,-z,relro -Wl,-z,now $(if $(filter g so shared,$(VARIANTS)),,-pie)
 
 # Add your required library names, here
-LIBS+=bps screen EGL GLESv1_CM freetype png m
+LIBS+=slog2 bps screen EGL GLESv1_CM freetype png m
 
 include $(MKFILES_ROOT)/qmacros.mk
 
