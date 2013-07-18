@@ -1,0 +1,15 @@
+.obj
+.moc
+*.o
+*.so
+*.a
+*.sym
+config.pri
+.assets.index
+.device
+.settings
+BB10Terminal
+*.so.1
+*.so.1.0
+*.so.1.0.0
+*.bar

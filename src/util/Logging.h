@@ -1,5 +1,3 @@
-
-
 #ifndef LOGGING_H_
 #define LOGGING_H_
 

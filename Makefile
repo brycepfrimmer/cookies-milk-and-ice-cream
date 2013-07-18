@@ -1,8 +1,6 @@
-LIST=CPU
-ifndef QRECURSE
-QRECURSE=recurse.mk
-ifdef QCONFIG
-QRDIR=$(dir $(QCONFIG))
-endif
-endif
-include $(QRDIR)$(QRECURSE)
+QMAKE_TARGET  = BB10Terminal
+PROJECT_DIR	  := $(dir $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST)))
+I18N_DIR	  := $(PROJECT_DIR)/translations
+
+include mk/cs-base.mk
+
