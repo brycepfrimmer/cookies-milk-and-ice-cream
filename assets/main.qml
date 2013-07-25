@@ -12,10 +12,8 @@ Page {
             textStyle.fontSize: FontSize.Medium
         }
         ScrollView {
-            topPadding: 0
-            topMargin: 0
-            bottomPadding: 5
-            bottomMargin: 0
+            bottomPadding: 0; topPadding: 0
+            bottomMargin: 0; topMargin: 0
             scrollViewProperties {
                 scrollMode: ScrollMode.Vertical
             }
@@ -40,12 +38,13 @@ Page {
                     spaceQuota: 0.1
                 }
                 id: pathField
-                text: _terminalHandler.getPath()
+                text: _terminalHandler.path
                 enabled: false
                 editable: false
                 textStyle.base: tsd.style
                 minWidth: text.length
                 rightPadding: 0
+                rightMargin: 0
             }
             TextArea {
                 id: inputField
@@ -55,11 +54,17 @@ Page {
                 enabled: true
                 editable: true
                 textStyle.base: tsd.style
+                backgroundVisible: false
                 leftPadding: 0
+                leftMargin: 0
                 onTextChanging: {
                     if (text.search("\n") >= 0) {
                         _terminalHandler.handleCommand(inputField.text);
                         inputField.text = "";
+                    } else if (text.search(":/") != -1) {
+                        inputField.text = _terminalHandler.priorCommand();
+                    } else if (text.search(":;") != -1) {
+                        inputField.text = _terminalHandler.nextCommand();
                     }
                 }
             }

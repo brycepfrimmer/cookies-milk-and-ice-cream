@@ -13,3 +13,5 @@ BB10Terminal
 *.so.1.0
 *.so.1.0.0
 *.bar
+*.qm
+arm/
